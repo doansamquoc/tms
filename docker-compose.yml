@@ -1,0 +1,15 @@
+version: "8.3"
+services:
+  tm-db:
+    container_name: tm-db
+    image: postgres:17-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - tm-db-data:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: task_management
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+volumes:
+  tm-db-data:
