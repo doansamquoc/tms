@@ -1,4 +1,4 @@
-package com.sam.taskmanagement.configuration;
+package com.sam.taskmanagement.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
