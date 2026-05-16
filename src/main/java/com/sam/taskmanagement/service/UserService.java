@@ -18,15 +18,12 @@ import org.springframework.stereotype.Service;
 public class UserService {
     UserMapper mapper;
     UserRepository repository;
-
+    
     public UserResponse create(UserCreationRequest request) {
         User user = mapper.toEntity(request);
-        if (user == null) {
-            throw new IllegalArgumentException("User cannot be null");
-        }
         return mapper.toDto(repository.save(user));
     }
-
+    
     public boolean existsById(@NonNull Long id) {
         return repository.existsById(id);
     }

@@ -9,12 +9,12 @@ import java.security.Principal;
 import java.util.Map;
 
 public class CustomHandshakeHandler extends DefaultHandshakeHandler {
-	@Override
-	protected Principal determineUser(
-	    @NonNull ServerHttpRequest request,
-	    @NonNull WebSocketHandler wsHandler,
-	    @NonNull Map<String, Object> attributes
-	) {
-		return (Principal) attributes.get("user");
-	}
+    @Override
+    protected Principal determineUser(
+        @NonNull ServerHttpRequest request,
+        @NonNull WebSocketHandler wsHandler,
+        @NonNull Map<String, Object> attributes
+    ) {
+        return (Principal) attributes.get("user");
+    }
 }

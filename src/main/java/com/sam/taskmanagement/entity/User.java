@@ -18,31 +18,41 @@ import java.util.List;
 @Table(name = "users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User extends BaseEntity {
-  @Column(name = "username", unique = true)
-  String username;
-
-  @Column(name = "password")
-  String password;
-
-  @Column(name = "email")
-  String email;
-
-  @Column(name = "display_name")
-  String displayName;
-
-  @Enumerated(EnumType.STRING)
-  @Column(name = "gender")
-  Gender gender;
-
-  @Column(name = "dob")
-  LocalDate dob;
-
-  @Column(name = "avatar")
-  String avatar;
-
-  @OneToMany(mappedBy = "assignor", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-  List<Task> assignedTasks;
-
-  @OneToMany(mappedBy = "assignee", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-  List<Task> receivedTasks;
+    @Column(name = "username", unique = true)
+    String username;
+    
+    @Column(name = "password")
+    String password;
+    
+    @Column(name = "email")
+    String email;
+    
+    @Column(name = "display_name")
+    String displayName;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender")
+    Gender gender;
+    
+    @Column(name = "dob")
+    LocalDate dob;
+    
+    @Column(name = "avatar")
+    String avatar;
+    
+    @OneToMany(
+        mappedBy = "assignor",
+        fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    List<Task> assignedTasks;
+    
+    @OneToMany(
+        mappedBy = "assignee",
+        fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    List<Task> receivedTasks;
 }

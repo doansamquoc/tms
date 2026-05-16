@@ -14,20 +14,20 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class TaskListener {
-	SimpMessagingTemplate template;
-	
-	@EventListener
-	public void handlerTaskCreated(TaskCreatedEvent event) {
-		Task task = event.task();
-		
-		NotificationResponse notification = new NotificationResponse(
-		    "You have a new task",
-		    task.getDescription()
-		);
-		
-		String assigneeId = String.valueOf(task.getAssignee().getId());
-		if (assigneeId != null && !assigneeId.isBlank()) {
-			template.convertAndSendToUser(assigneeId, "/queue/notifications", notification);
-		}
-	}
+    SimpMessagingTemplate template;
+    
+    @EventListener
+    public void handlerTaskCreated(TaskCreatedEvent event) {
+        Task task = event.task();
+        
+        NotificationResponse notification = new NotificationResponse(
+            "You have a new task",
+            task.getDescription()
+        );
+        
+        String assigneeId = String.valueOf(task.getAssignee().getId());
+        if (assigneeId != null && !assigneeId.isBlank()) {
+            template.convertAndSendToUser(assigneeId, "/queue/notifications", notification);
+        }
+    }
 }

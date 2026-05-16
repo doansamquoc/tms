@@ -1,4 +1,4 @@
-package com.sam.taskmanagement.dto.rest;
+package com.sam.taskmanagement.dto.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sam.taskmanagement.dto.request.UserCreationRequest;
 import com.sam.taskmanagement.dto.response.UserResponse;
-import com.sam.taskmanagement.dto.rest.ApiResponse;
+import com.sam.taskmanagement.dto.api.ApiResponse;
 import com.sam.taskmanagement.service.UserService;
 
 import lombok.AccessLevel;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserController {
   UserService service;
-
+  
   @PostMapping("")
   @ResponseStatus(HttpStatus.CREATED)
   public ApiResponse<UserResponse> create(@RequestBody UserCreationRequest request) {

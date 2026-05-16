@@ -11,7 +11,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
     nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
 )
 public interface TaskMapper {
-	Task toEntity(TaskCreationRequest request);
-	
-	TaskResponse toResponse(Task task);
+    Task toEntity(TaskCreationRequest request);
+    
+    TaskResponse toResponse(Task task);
 }

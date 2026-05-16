@@ -20,31 +20,31 @@ import java.time.Instant;
 public class Task extends BaseEntity {
   @Column(name = "name")
   String name;
-
+  
   @Column(name = "description")
   String description;
-
+  
   @Enumerated(EnumType.STRING)
   @Column(name = "status")
   TaskStatus status;
-
+  
   @Enumerated(EnumType.STRING)
   @Column(name = "priority")
   Priority priority;
-
+  
   @Column(name = "deadline_at")
   Instant deadlineAt;
-
+  
   @Column(name = "completed_at")
   Instant completedAt;
-
+  
   @Column(name = "canceled_at")
   Instant canceledAt;
-
+  
   @JoinColumn(name = "assignor_id")
   @ManyToOne(fetch = FetchType.LAZY)
   User assignor;
-
+  
   @JoinColumn(name = "assignee_id")
   @ManyToOne(fetch = FetchType.LAZY)
   User assignee;
