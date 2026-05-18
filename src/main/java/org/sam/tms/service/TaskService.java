@@ -18,18 +18,17 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class TaskService {
-	TaskMapper mapper;
-	TaskRepository repository;
 	EntityManager em;
+	TaskMapper mapper;
+	UserService userService;
+	TaskRepository repository;
 	ApplicationEventPublisher publisher;
-	private final UserService userService;
 
 	public TaskResponse create(Long assignorId, TaskCreationRequest request) {
 		User assignor = em.getReference(User.class, assignorId);
 		User assignee = em.getReference(User.class, request.assigneeId());
-		if (!userService.existsById(assignee.getId())) {
-			throw new IllegalArgumentException("Assignee not found");
-		}
+		if (!userService.existsById(assignee.getId())) throw new IllegalArgumentException("Assignee not found");
+
 
 		Task task = mapper.toEntity(request);
 		task.setAssignor(assignor);

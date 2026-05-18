@@ -20,11 +20,8 @@ public class UserHandshakeInterceptor implements HandshakeInterceptor {
 		@NonNull Map<String, Object> attributes
 	) {
 		if (request instanceof ServletServerHttpRequest) {
-			String userId = ((ServletServerHttpRequest) request).getServletRequest()
-				.getParameter("userId");
-			if (userId != null) {
-				attributes.put("user", (Principal) () -> userId);
-			}
+			String userId = ((ServletServerHttpRequest) request).getServletRequest().getParameter("userId");
+			if (userId != null) attributes.put("user", (Principal) () -> userId);
 		}
 		return true;
 	}

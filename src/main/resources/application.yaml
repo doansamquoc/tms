@@ -22,5 +22,8 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
 
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+
 app:
   secret-key: 1fajsdofaodoifasdfojadnfaoidfoasdoifashodfakoldfoqweoifoadof
