@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import org.sam.tms.dto.request.TaskCreationRequest;
 import org.sam.tms.dto.response.TaskResponse;
 import org.sam.tms.service.TaskService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,13 +17,9 @@ import org.springframework.web.bind.annotation.*;
 public class TaskController {
 	TaskService service;
 
-	@PostMapping("")
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
 	public TaskResponse create(@Valid @RequestBody TaskCreationRequest request) {
 		return service.create(1L, request);
-	}
-
-	@GetMapping("")
-	public String helloWorld() {
-		return "Hello World! Brook! How are u today?";
 	}
 }
